@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
-using MapTiles.Editor.Git;
-using Tools.Editor;
+using EasyGit.Editor.View;
 
-public class GitServerBrowserWindow : EditorWindow
+namespace EasyGit
+{
+    public class GitServerBrowserWindow : EditorWindow
 {
     [Serializable]
     private class Project
@@ -374,7 +374,7 @@ public class GitServerBrowserWindow : EditorWindow
                     LoadProjectsAsync();
                 }
                 // Refresh orgs button
-                EditorUtils.IconButton(() => LoadOrgsAsync(), AwesomeIcons.Refresh, Tools.Editor.EditorUtils.IconStyle.Solid, "Обновить список организаций", 14);
+                EditorUtils.IconButton(() => LoadOrgsAsync(), AwesomeIcons.Refresh, EditorUtils.IconStyle.Solid, "Обновить список организаций", 14);
 
                 // Trigger search on Enter while focus is in the search field
                 var e = Event.current;
@@ -394,7 +394,7 @@ public class GitServerBrowserWindow : EditorWindow
                 using (new EditorGUI.DisabledScope(_isLoading))
                 {
                     // Single search/refresh icon button
-                    EditorUtils.IconButton(() => { _debounceAt = 0; _lastQuerySearched = _search; _page = 1; LoadProjectsAsync(); }, AwesomeIcons.Search, Tools.Editor.EditorUtils.IconStyle.Solid, "Искать/Обновить", 14);
+                    EditorUtils.IconButton(() => { _debounceAt = 0; _lastQuerySearched = _search; _page = 1; LoadProjectsAsync(); }, AwesomeIcons.Search, EditorUtils.IconStyle.Solid, "Искать/Обновить", 14);
                 }
                 GUILayout.FlexibleSpace();
                 using (new EditorGUI.DisabledScope(_isLoading || _page <= 1))
@@ -504,7 +504,7 @@ public class GitServerBrowserWindow : EditorWindow
                 {
                     if (canClone)
                     {
-                        EditorUtils.IconButton(() => CloneProject(p.http_url_to_repo), AwesomeIcons.Download, Tools.Editor.EditorUtils.IconStyle.Solid, "Клонировать", 16);
+                        EditorUtils.IconButton(() => CloneProject(p.http_url_to_repo), AwesomeIcons.Download, EditorUtils.IconStyle.Solid, "Клонировать", 16);
                     }
                 }
                 if (installed)
@@ -514,7 +514,7 @@ public class GitServerBrowserWindow : EditorWindow
                 EditorUtils.IconButton(() =>
                 {
                     if (!string.IsNullOrEmpty(p.web_url)) Application.OpenURL(p.web_url);
-                }, AwesomeIcons.Link, Tools.Editor.EditorUtils.IconStyle.Solid, "Копировать URL в буфер обмена", 14);
+                }, AwesomeIcons.Link, EditorUtils.IconStyle.Solid, "Копировать URL в буфер обмена", 14);
             }
             if (!string.IsNullOrEmpty(p.last_activity_at))
             {
@@ -562,4 +562,6 @@ public class GitServerBrowserWindow : EditorWindow
             EditorUtility.DisplayDialog("Клонирование", "Ошибка при клонировании. См. Console.", "OK");
         }
     }
+}
+
 }

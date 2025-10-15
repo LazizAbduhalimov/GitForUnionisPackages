@@ -6,7 +6,9 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-public static class GitRequirementsUtil
+namespace EasyGit
+{
+    public static class GitRequirementsUtil
 {
     [Serializable]
     private class GitRequirements { public List<string> urls = new(); }
@@ -72,4 +74,5 @@ public static class GitRequirementsUtil
         }
         catch { return string.Empty; }
     }
+}
 }

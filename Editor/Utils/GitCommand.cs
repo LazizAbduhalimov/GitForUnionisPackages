@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 
-namespace MapTiles.Editor.Git
+namespace EasyGit
 {
     public static class GitCommand
     {

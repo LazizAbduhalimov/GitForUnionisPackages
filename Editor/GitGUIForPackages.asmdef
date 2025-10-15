@@ -1,9 +1,7 @@
 {
     "name": "GitGUIForPackages",
     "rootNamespace": "",
-    "references": [
-        "GUID:b16b0f37d3ef6b84ca9312dc3a61616a"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

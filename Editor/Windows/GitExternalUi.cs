@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using UnityEditor;
 
-namespace MapTiles.Editor.Git
+namespace EasyGit
 {
     public enum ExternalGitClient
     {

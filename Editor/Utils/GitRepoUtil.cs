@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace MapTiles.Editor.Git
+namespace EasyGit
 {
     public static class GitRepoUtil
     {
