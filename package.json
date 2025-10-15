@@ -1,0 +1,13 @@
+{
+    "name": "com.laziz.git-dependencies-handler",
+    "version": "0.5.0",
+    "displayName": "Git dependencies handler",
+    "description": "Easy way to manage git dependencies in Unity packages",
+    "unity": "2022.3",
+    "author": {
+      "name": "Laziz Abduhalimov",
+      "email": "lazizabduhalimvo35@gmail.com"
+    },
+    "dependencies": {}
+  }
+  
